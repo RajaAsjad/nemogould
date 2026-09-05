@@ -561,12 +561,13 @@ body.is-ready .hero__mark {
 
 .btn--brass {
   background: var(--brass);
-  color: var(--ink);
+  color: #1a1410 !important;
   box-shadow: 0 0 0 rgba(201, 166, 107, 0);
 }
 
 .btn--brass:hover {
   background: var(--brass-hot);
+  color: #1a1410 !important;
   box-shadow: 0 12px 32px rgba(201, 166, 107, 0.28);
 }
 
@@ -1009,14 +1010,14 @@ h2 {
 
 .about__inner,
 .exhibitions__inner {
-  max-width: 1080px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .about__grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.85fr;
-  gap: clamp(1.75rem, 4vw, 3rem);
+  grid-template-columns: 1fr 1fr; /* 6 / 6 */
+  gap: clamp(1.5rem, 4vw, 2.75rem);
   align-items: center;
 }
 
@@ -1039,14 +1040,15 @@ h2 {
 .about__figure {
   margin: 0;
   position: relative;
-  max-width: 380px;
-  justify-self: end;
   width: 100%;
+  max-width: none;
+  justify-self: stretch;
 }
 
 .about__frame {
   position: relative;
   overflow: hidden;
+  width: 100%;
   background: var(--paper);
   padding: 0.45rem;
   border: 1px solid rgba(184, 149, 90, 0.28);
@@ -1054,10 +1056,13 @@ h2 {
 }
 
 .about__figure img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-height: 420px;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
   background: var(--paper);
   transition: transform 1s var(--ease);
 }
@@ -1443,13 +1448,13 @@ h2 {
   color: var(--brass);
 }
 
-.site-footer__col a {
+.site-footer__col a:not(.btn) {
   color: var(--muted);
   position: relative;
   transition: color 0.3s ease, transform 0.3s var(--ease);
 }
 
-.site-footer__col a::after {
+.site-footer__col a:not(.btn)::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1462,13 +1467,27 @@ h2 {
   transition: transform 0.35s var(--ease);
 }
 
-.site-footer__col a:hover {
+.site-footer__col a:not(.btn):hover {
   color: var(--text);
   transform: translateX(4px);
 }
 
-.site-footer__col a:hover::after {
+.site-footer__col a:not(.btn):hover::after {
   transform: scaleX(1);
+}
+
+.site-footer__col .btn--brass {
+  color: #1a1410 !important;
+  margin-top: 0.25rem;
+}
+
+.site-footer__col .btn--brass::after {
+  display: none;
+}
+
+.site-footer__col .btn--brass:hover {
+  color: #1a1410 !important;
+  transform: translateY(-2px);
 }
 
 .site-footer__col span {
@@ -1731,6 +1750,10 @@ h2 {
   .about__figure {
     max-width: 100%;
     justify-self: stretch;
+  }
+
+  .about__figure img {
+    max-height: 360px;
   }
 
   .exhibit__media,
