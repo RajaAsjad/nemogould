@@ -11,10 +11,11 @@
   <link rel="apple-touch-icon" href="assets/brand/logo-square.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
   <!-- Canvas kinetic loader -->
   <div id="loader" class="loader" aria-hidden="true">
     <canvas id="loader-canvas"></canvas>
@@ -59,13 +60,21 @@
           <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
         </div>
         <div class="hero__content">
+          <p class="hero__meta">
+            <span>Oakland studio</span>
+            <span class="hero__dot" aria-hidden="true"></span>
+            <span>a.k.a. nemomatic</span>
+          </p>
           <img src="assets/brand/logo.png" alt="" class="hero__mark" width="96" height="64" />
           <h1 class="hero__brand">Nemo Gould</h1>
-          <p class="hero__tag">Kinetic sculpture from found materials</p>
+          <p class="hero__tag">Kinetic sculpture from found materials — machines with soul, built from what the world left behind.</p>
           <div class="hero__actions">
-            <a href="#works" class="btn btn--brass">View selected works</a>
-            <a href="#about" class="btn btn--ghost">Meet the artist</a>
+            <a href="#works" class="btn btn--brass">Enter the cabinet</a>
+            <a href="#about" class="btn btn--ghost">The artist</a>
           </div>
+        </div>
+        <div class="hero__rail" aria-hidden="true">
+          <span>Found · Fabricated · Animated</span>
         </div>
         <a href="#works" class="hero__scroll" aria-label="Scroll to works">
           <span>Scroll</span>
@@ -74,17 +83,48 @@
       </section>
 
       <section class="intro strip" data-reveal>
+        <p class="intro__kicker">Pro-found object art</p>
         <p class="intro__text">
-          Artist Nemo Gould (a.k.a. “nemomatic”) is a compulsive collector of things, and maker of all sorts —
-          building <em>pro-found object</em> kinetic sculpture from salvaged materials and vintage technology.
+          Artist Nemo Gould is a compulsive collector of things, and maker of all sorts —
+          building kinetic sculpture from salvaged materials, vintage technology, and a lifetime of hoarding with purpose.
         </p>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Psyclops</span><span>Armstrong</span><span>Warhead</span><span>Gearbox</span><span>Major Tomcat</span><span>Sparky</span><span>Watchful</span><span>Bytes</span><span>Hammerhead</span><span>Dingaling</span><span>Chatbot</span><span>The Pursuit of Joy</span>
+          <span>Psyclops</span><span>Armstrong</span><span>Warhead</span><span>Gearbox</span><span>Major Tomcat</span><span>Sparky</span><span>Watchful</span><span>Bytes</span><span>Hammerhead</span><span>Dingaling</span><span>Chatbot</span><span>The Pursuit of Joy</span>
+        </div>
+      </div>
+
+      <section class="spotlight" data-reveal>
+        <div class="spotlight__media">
+          <button type="button" class="spotlight__hit work__hit" data-src="assets/works/warhead.jpg" data-title="Warhead" aria-label="View Warhead">
+            <img src="assets/works/warhead.jpg" alt="Warhead — typewriter assemblage kinetic sculpture" width="1000" height="1000" loading="lazy" />
+            <span class="work__overlay"><span>Inspect</span></span>
+          </button>
+        </div>
+        <div class="spotlight__copy">
+          <p class="eyebrow">Featured assemblage</p>
+          <h2>Warhead</h2>
+          <p class="spotlight__lede">
+            An Underwood typewriter reborn as a bristling mechanical visage — brass casings for teeth,
+            lenses for eyes, and the dark humor that runs through Gould’s cabinet of kinetic curiosities.
+          </p>
+          <ul class="spotlight__tags">
+            <li>Found objects</li>
+            <li>Typewriter</li>
+            <li>Assemblage</li>
+          </ul>
+          <a href="#works" class="text-link">Browse the full selection</a>
+        </div>
       </section>
 
       <section class="works" id="works">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Selected works</p>
           <h2>Machines with character</h2>
-          <p class="lede">A glimpse of kinetic figures assembled from scrap yards, thrift finds, and forgotten tech.</p>
+          <p class="lede">Figures assembled from scrap yards, thrift finds, and forgotten tech — each one wired to move, glow, or stare back.</p>
         </div>
         <div class="works__grid">
           <article class="work" data-reveal data-lightbox>
@@ -92,84 +132,84 @@
               <img src="assets/works/psyclops.jpg" alt="Psyclops — kinetic found-object sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Psyclops</h3>
+            <h3><span class="work__idx">01</span> Psyclops</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/armstrong.jpg" data-title="Armstrong" aria-label="View Armstrong">
               <img src="assets/works/armstrong.jpg" alt="Armstrong — chrome kinetic robot sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Armstrong</h3>
+            <h3><span class="work__idx">02</span> Armstrong</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/warhead.jpg" data-title="Warhead" aria-label="View Warhead">
               <img src="assets/works/warhead.jpg" alt="Warhead — typewriter assemblage sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Warhead</h3>
+            <h3><span class="work__idx">03</span> Warhead</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/gearbox.jpg" data-title="Gearbox" aria-label="View Gearbox">
               <img src="assets/works/gearbox.jpg" alt="Gearbox kinetic sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Gearbox</h3>
+            <h3><span class="work__idx">04</span> Gearbox</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/majortomcat.jpg" data-title="Major Tomcat" aria-label="View Major Tomcat">
               <img src="assets/works/majortomcat.jpg" alt="Major Tomcat sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Major Tomcat</h3>
+            <h3><span class="work__idx">05</span> Major Tomcat</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/pursuit.jpg" data-title="The Pursuit of Joy" aria-label="View The Pursuit of Joy">
               <img src="assets/works/pursuit.jpg" alt="The Pursuit of Joy sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>The Pursuit of Joy</h3>
+            <h3><span class="work__idx">06</span> The Pursuit of Joy</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/sparky.jpg" data-title="Sparky" aria-label="View Sparky">
               <img src="assets/works/sparky.jpg" alt="Sparky sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Sparky</h3>
+            <h3><span class="work__idx">07</span> Sparky</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/watchful.jpg" data-title="Watchful" aria-label="View Watchful">
               <img src="assets/works/watchful.jpg" alt="Watchful sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Watchful</h3>
+            <h3><span class="work__idx">08</span> Watchful</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/bytes.jpg" data-title="Bytes" aria-label="View Bytes">
               <img src="assets/works/bytes.jpg" alt="Bytes sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Bytes</h3>
+            <h3><span class="work__idx">09</span> Bytes</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/hammerhead.jpg" data-title="Hammerhead" aria-label="View Hammerhead">
               <img src="assets/works/hammerhead.jpg" alt="Hammerhead sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Hammerhead</h3>
+            <h3><span class="work__idx">10</span> Hammerhead</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/dingaling.jpg" data-title="Dingaling" aria-label="View Dingaling">
               <img src="assets/works/dingaling.jpg" alt="Dingaling sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Dingaling</h3>
+            <h3><span class="work__idx">11</span> Dingaling</h3>
           </article>
           <article class="work" data-reveal data-lightbox>
             <button type="button" class="work__hit" data-src="assets/works/chatbot.jpg" data-title="Chatbot" aria-label="View Chatbot">
               <img src="assets/works/chatbot.jpg" alt="Chatbot sculpture" loading="lazy" width="1000" height="1000" />
               <span class="work__overlay"><span>View</span></span>
             </button>
-            <h3>Chatbot</h3>
+            <h3><span class="work__idx">12</span> Chatbot</h3>
           </article>
         </div>
       </section>
@@ -192,10 +232,25 @@
             <a href="mailto:nemo@nemogould.com" class="text-link">nemo@nemogould.com</a>
           </div>
           <figure class="about__figure" data-reveal>
-            <img src="assets/works/portraits.jpg" alt="Still from Portraits of Another Life documentary" loading="lazy" width="1000" height="1000" />
+            <div class="about__frame">
+              <img src="assets/works/portraits.jpg" alt="Still from Portraits of Another Life documentary" loading="lazy" width="1000" height="1000" />
+            </div>
             <figcaption>Portraits of Another Life — short documentary</figcaption>
           </figure>
         </div>
+        <div class="creds" data-reveal>
+          <div class="creds__item"><span>BFA</span><strong>Kansas City Art Institute</strong></div>
+          <div class="creds__item"><span>MFA</span><strong>U.C. Berkeley</strong></div>
+          <div class="creds__item"><span>Residency</span><strong>Recology</strong></div>
+          <div class="creds__item"><span>Featured</span><strong>Wired · Discovery · Make</strong></div>
+        </div>
+      </section>
+
+      <section class="quote" data-reveal>
+        <blockquote>
+          <p>“If you don’t know what’s buried under that pile of crap in the corner, then it’s just garbage.”</p>
+          <cite>— Nemo Gould, on process</cite>
+        </blockquote>
       </section>
 
       <section class="process" id="process">
@@ -333,6 +388,14 @@
     <figure class="lightbox__panel">
       <img src="" alt="" id="lightbox-img" />
       <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="js/loader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+ aption id="lightbox-caption"></figcaption>
     </figure>
   </div>
 
