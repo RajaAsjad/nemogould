@@ -1,11 +1,12 @@
 /**
- * Site interactions: nav, reveal, lightbox, hero particles, year.
+ * Site interactions: nav, reveal, lightbox, magnetic hover, hero particles.
  */
 (function () {
   const header = document.getElementById("header");
   const toggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("nav");
   const year = document.getElementById("year");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (year) year.textContent = String(new Date().getFullYear());
 
   // Header scroll state
@@ -33,7 +34,7 @@
     });
   }
 
-  // Reveal on scroll
+  // Reveal on scroll (staggered within grids)
   const reveals = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
@@ -48,11 +49,49 @@
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
     reveals.forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min(i % 6, 5) * 60}ms`;
+      const parent = el.parentElement;
+      const siblings = parent
+        ? Array.from(parent.children).filter((c) => c.hasAttribute("data-reveal"))
+        : [];
+      const idx = siblings.indexOf(el);
+      const delay = Math.max(0, idx) * 70 + (i % 3) * 20;
+      el.style.transitionDelay = `${Math.min(delay, 420)}ms`;
       io.observe(el);
     });
   } else {
     reveals.forEach((el) => el.classList.add("is-in"));
+  }
+
+  // Magnetic buttons
+  if (!reduced) {
+    document.querySelectorAll(".btn, .social-link, .back-top").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        el.style.transform = `translate(${x * 0.18}px, ${y * 0.22}px)`;
+      });
+      el.addEventListener("pointerleave", () => {
+        el.style.transform = "";
+      });
+    });
+  }
+
+  // Soft tilt on work cards
+  if (!reduced && window.matchMedia("(pointer: fine)").matches) {
+    document.querySelectorAll(".work").forEach((card) => {
+      const hit = card.querySelector(".work__hit");
+      if (!hit) return;
+      hit.addEventListener("pointermove", (e) => {
+        const r = hit.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) translateY(-4px)`;
+      });
+      hit.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
   }
 
   // Lightbox
@@ -91,8 +130,7 @@
 
   // Hero ambient canvas (dust / ember motes)
   const heroCanvas = document.getElementById("hero-canvas");
-  if (!heroCanvas) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!heroCanvas || reduced) return;
 
   const ctx = heroCanvas.getContext("2d");
   let w = 0;
@@ -111,7 +149,7 @@
   }
 
   function spawn() {
-    particles = Array.from({ length: 36 }, () => ({
+    particles = Array.from({ length: 42 }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
       r: 0.6 + Math.random() * 1.8,
