@@ -9,13 +9,32 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Header scroll state
-  const onScroll = () => {
+  // Header scroll state + active nav section
+  const sectionIds = ["works", "about", "process", "exhibitions", "contact"];
+  const navLinks = nav ? Array.from(nav.querySelectorAll("a[href^='#']")) : [];
+
+  const setActiveNav = () => {
     if (!header) return;
     header.classList.toggle("is-scrolled", window.scrollY > 24);
+
+    if (!navLinks.length) return;
+    const offset = window.innerHeight * 0.28;
+    let current = "";
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      if (top - offset <= 0) current = id;
+    });
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const id = href.replace("#", "");
+      link.classList.toggle("is-active", id === current && !!current);
+    });
   };
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+
+  window.addEventListener("scroll", setActiveNav, { passive: true });
+  setActiveNav();
 
   // Mobile nav
   if (toggle && nav) {
