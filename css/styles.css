@@ -1127,11 +1127,20 @@ h2 {
   position: fixed;
   inset: 0;
   z-index: 2000;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: rgba(6, 6, 5, 0.94);
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:
+    max(4.5rem, env(safe-area-inset-top, 0px))
+    max(1rem, env(safe-area-inset-right, 0px))
+    max(1.5rem, env(safe-area-inset-bottom, 0px))
+    max(1rem, env(safe-area-inset-left, 0px));
+  box-sizing: border-box;
   animation: lbIn 0.35s var(--ease);
 }
 
@@ -1145,15 +1154,29 @@ h2 {
 }
 
 .lightbox[hidden] {
-  display: none;
+  display: none !important;
 }
 
-.lightbox img {
-  max-height: min(78vh, 900px);
-  max-width: min(92vw, 900px);
+.lightbox__panel {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  width: min(92vw, 900px);
+  max-height: calc(100dvh - 6.5rem);
+  animation: lbImg 0.45s var(--ease);
+}
+
+.lightbox__panel img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(72dvh, calc(100dvh - 8rem), 900px);
   object-fit: contain;
   background: var(--paper);
-  animation: lbImg 0.45s var(--ease);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 
@@ -1168,22 +1191,27 @@ h2 {
   }
 }
 
-.lightbox p {
+.lightbox__panel figcaption {
   margin: 0;
   font-family: var(--font-display);
   letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--text);
 }
 
 .lightbox__close {
   position: absolute;
-  top: 1rem;
-  right: 1.25rem;
+  top: max(0.85rem, env(safe-area-inset-top, 0px));
+  right: max(0.85rem, env(safe-area-inset-right, 0px));
+  z-index: 2;
   width: 2.75rem;
   height: 2.75rem;
   font-size: 1.75rem;
   line-height: 1;
   color: var(--muted);
   border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
   transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.3s var(--ease);
 }
 
@@ -1192,6 +1220,24 @@ h2 {
   border-color: var(--brass);
   background: var(--brass);
   transform: rotate(90deg);
+}
+
+@media (max-width: 560px) {
+  .lightbox {
+    padding:
+      max(4rem, env(safe-area-inset-top, 0px))
+      0.85rem
+      max(1.25rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  .lightbox__panel {
+    width: min(94vw, 900px);
+    max-height: calc(100dvh - 5.5rem);
+  }
+
+  .lightbox__panel img {
+    max-height: min(68dvh, calc(100dvh - 7.5rem));
+  }
 }
 
 /* —— Responsive —— */
