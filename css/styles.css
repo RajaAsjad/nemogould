@@ -332,17 +332,18 @@ body.is-ready .app {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
-  transform: scale(1.06);
-  animation: heroDrift 18s ease-in-out infinite alternate;
+  object-position: 68% 28%;
+  transform: scale(1.08);
+  animation: heroDrift 20s ease-in-out infinite alternate;
+  filter: saturate(1.05) contrast(1.04);
 }
 
 @keyframes heroDrift {
   from {
-    transform: scale(1.06) translate3d(0, 0, 0);
+    transform: scale(1.08) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+    transform: scale(1.14) translate3d(-2%, -1.5%, 0);
   }
 }
 
@@ -350,9 +351,9 @@ body.is-ready .app {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(105deg, rgba(20, 15, 12, 0.94) 0%, rgba(20, 15, 12, 0.62) 42%, rgba(20, 15, 12, 0.28) 68%, rgba(20, 15, 12, 0.75) 100%),
-    linear-gradient(to top, rgba(20, 15, 12, 0.96) 0%, transparent 45%),
-    radial-gradient(ellipse at 70% 40%, rgba(184, 149, 90, 0.12), transparent 50%);
+    linear-gradient(105deg, rgba(20, 15, 12, 0.92) 0%, rgba(20, 15, 12, 0.55) 38%, rgba(20, 15, 12, 0.18) 62%, rgba(20, 15, 12, 0.55) 100%),
+    linear-gradient(to top, rgba(20, 15, 12, 0.95) 0%, rgba(20, 15, 12, 0.25) 42%, transparent 60%),
+    radial-gradient(ellipse at 72% 32%, rgba(184, 149, 90, 0.18), transparent 42%);
 }
 
 .hero__canvas {
@@ -1806,7 +1807,7 @@ h2 {
   }
 
   .hero__img {
-    object-position: center 12%;
+    object-position: 70% 22%;
   }
 
   .site-footer__bottom {
