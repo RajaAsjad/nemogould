@@ -709,7 +709,7 @@ h2 {
 }
 
 .marquee__track span::after {
-  content: "·";
+  content: "/";
   margin-left: 2.5rem;
   color: var(--brass);
   opacity: 0.7;
