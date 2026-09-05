@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nemo Gould | Kinetic Sculpture from Found Materials</title>
+  <meta name="description" content="Artist Nemo Gould — kinetic sculpture built from found materials and vintage technology. Oakland studio. Portfolio, exhibitions, and available works." />
+  <meta name="theme-color" content="#0a0a09" />
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/jpeg" href="assets/brand/favicon.jpg" />
+  <link rel="apple-touch-icon" href="assets/brand/logo-square.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Canvas kinetic loader -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <canvas id="loader-canvas"></canvas>
+    <div class="loader__ui">
+      <img src="assets/brand/logo.png" alt="" class="loader__mark" width="72" height="48" />
+      <p class="loader__label"><span id="loader-pct">0</span>%</p>
+      <p class="loader__hint">Assembling kinetic systems</p>
+    </div>
+  </div>
+
+  <div id="app" class="app">
+    <header class="site-header" id="header">
+      <a href="#top" class="brand" aria-label="Nemo Gould home">
+        <img src="assets/brand/logo.png" alt="Nemo Gould" class="brand__logo" width="56" height="38" />
+        <span class="brand__word">Nemo Gould</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#works">Works</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#contact" class="nav__cta">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <!-- Hero: one composition -->
+      <section class="hero" aria-label="Introduction">
+        <div class="hero__media" aria-hidden="true">
+          <img
+            src="assets/works/armstrong.jpg"
+            alt=""
+            class="hero__img"
+            width="1000"
+            height="1000"
+            fetchpriority="high"
+          />
+          <div class="hero__veil"></div>
+          <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+        </div>
+        <div class="hero__content">
+          <img src="assets/brand/logo.png" alt="" class="hero__mark" width="96" height="64" />
+          <h1 class="hero__brand">Nemo Gould</h1>
+          <p class="hero__tag">Kinetic sculpture from found materials</p>
+          <div class="hero__actions">
+            <a href="#works" class="btn btn--brass">View selected works</a>
+            <a href="#about" class="btn btn--ghost">Meet the artist</a>
+          </div>
+        </div>
+        <a href="#works" class="hero__scroll" aria-label="Scroll to works">
+          <span>Scroll</span>
+          <i></i>
+        </a>
+      </section>
+
+      <section class="intro strip" data-reveal>
+        <p class="intro__text">
+          Artist Nemo Gould (a.k.a. “nemomatic”) is a compulsive collector of things, and maker of all sorts —
+          building <em>pro-found object</em> kinetic sculpture from salvaged materials and vintage technology.
+        </p>
+      </section>
+
+      <section class="works" id="works">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Selected works</p>
+          <h2>Machines with character</h2>
+          <p class="lede">A glimpse of kinetic figures assembled from scrap yards, thrift finds, and forgotten tech.</p>
+        </div>
+        <div class="works__grid">
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/psyclops.jpg" data-title="Psyclops" aria-label="View Psyclops">
+              <img src="assets/works/psyclops.jpg" alt="Psyclops — kinetic found-object sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Psyclops</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/armstrong.jpg" data-title="Armstrong" aria-label="View Armstrong">
+              <img src="assets/works/armstrong.jpg" alt="Armstrong — chrome kinetic robot sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Armstrong</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/warhead.jpg" data-title="Warhead" aria-label="View Warhead">
+              <img src="assets/works/warhead.jpg" alt="Warhead — typewriter assemblage sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Warhead</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/gearbox.jpg" data-title="Gearbox" aria-label="View Gearbox">
+              <img src="assets/works/gearbox.jpg" alt="Gearbox kinetic sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Gearbox</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/majortomcat.jpg" data-title="Major Tomcat" aria-label="View Major Tomcat">
+              <img src="assets/works/majortomcat.jpg" alt="Major Tomcat sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Major Tomcat</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/pursuit.jpg" data-title="The Pursuit of Joy" aria-label="View The Pursuit of Joy">
+              <img src="assets/works/pursuit.jpg" alt="The Pursuit of Joy sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>The Pursuit of Joy</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/sparky.jpg" data-title="Sparky" aria-label="View Sparky">
+              <img src="assets/works/sparky.jpg" alt="Sparky sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Sparky</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/watchful.jpg" data-title="Watchful" aria-label="View Watchful">
+              <img src="assets/works/watchful.jpg" alt="Watchful sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Watchful</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/bytes.jpg" data-title="Bytes" aria-label="View Bytes">
+              <img src="assets/works/bytes.jpg" alt="Bytes sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Bytes</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/hammerhead.jpg" data-title="Hammerhead" aria-label="View Hammerhead">
+              <img src="assets/works/hammerhead.jpg" alt="Hammerhead sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Hammerhead</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/dingaling.jpg" data-title="Dingaling" aria-label="View Dingaling">
+              <img src="assets/works/dingaling.jpg" alt="Dingaling sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Dingaling</h3>
+          </article>
+          <article class="work" data-reveal data-lightbox>
+            <button type="button" class="work__hit" data-src="assets/works/chatbot.jpg" data-title="Chatbot" aria-label="View Chatbot">
+              <img src="assets/works/chatbot.jpg" alt="Chatbot sculpture" loading="lazy" width="1000" height="1000" />
+            </button>
+            <h3>Chatbot</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about__grid">
+          <div class="about__copy" data-reveal>
+            <p class="eyebrow">About</p>
+            <h2>Chairman of the Hoard</h2>
+            <p>
+              Self-described “Chairman of the Hoard,” Nemo Gould is a master accumulator of materials and building
+              techniques alike. His Oakland studio is a veritable museum of old objects and technology, blended into a
+              signature style of kinetic sculpture.
+            </p>
+            <p>
+              His work pushes the limits of found-object art and invites viewers to experience sculpture through
+              interaction. Gould received his BFA from the Kansas City Art Institute (1998) and his MFA in sculpture
+              from U.C. Berkeley (2000). His pieces appear in museums and collections throughout the U.S. and abroad.
+            </p>
+            <a href="mailto:nemo@nemogould.com" class="text-link">nemo@nemogould.com</a>
+          </div>
+          <figure class="about__figure" data-reveal>
+            <img src="assets/works/portraits.jpg" alt="Still from Portraits of Another Life documentary" loading="lazy" width="1000" height="1000" />
+            <figcaption>Portraits of Another Life — short documentary</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <div class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Process</p>
+          <h2>From scrap pile to kinetic life</h2>
+          <p class="lede">Equal time spent hunting “raw” materials and coaxing them into new machines.</p>
+        </div>
+        <div class="process__steps">
+          <article class="step" data-reveal>
+            <span class="step__num">01</span>
+            <h3>Salvage</h3>
+            <p>Scrap yards, second-hand stores, and dumpsters — the studio begins in the field.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__num">02</span>
+            <h3>Sort &amp; restore</h3>
+            <p>Clean, strip, mend, and organize. If you don’t know what’s under the pile, it’s just garbage.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__num">03</span>
+            <h3>Fabricate</h3>
+            <p>TIG welding, machining, electronics, and woodwork — no casting, only recontextualized parts.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__num">04</span>
+            <h3>Animate</h3>
+            <p>Mechanics and wiring give each figure motion, light, and a personality of its own.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="exhibitions" id="exhibitions">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Now &amp; recent</p>
+          <h2>Exhibitions &amp; film</h2>
+        </div>
+        <div class="exhibitions__row">
+          <article class="exhibit" data-reveal>
+            <img src="assets/works/technostalgia.png" alt="Technostalgia at Museum of American Heritage" loading="lazy" width="1000" height="1000" />
+            <div>
+              <h3>Technostalgia at M.O.A.H.</h3>
+              <p>Featured exhibition at the Museum of American Heritage — vintage tech reimagined as living sculpture.</p>
+            </div>
+          </article>
+          <article class="exhibit" data-reveal>
+            <img src="assets/works/recology.jpg" alt="Recology Retrospective" loading="lazy" width="1000" height="1000" />
+            <div>
+              <h3>Recology Retrospective</h3>
+              <p>Work rooted in the Recology artist-in-residence tradition — art born from the Bay Area’s discard stream.</p>
+            </div>
+          </article>
+          <article class="exhibit" data-reveal>
+            <img src="assets/works/portraits.jpg" alt="Portraits of Another Life" loading="lazy" width="1000" height="1000" />
+            <div>
+              <h3>Portraits of Another Life</h3>
+              <p>A short documentary on the studio practice behind these kinetic found-object figures.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" data-reveal>
+        <p class="eyebrow">Studio</p>
+        <h2>Comments &amp; questions welcome</h2>
+        <p class="lede">Interested in a piece, a commission, or exhibition inquiry? Reach out directly.</p>
+        <div class="contact__actions">
+          <a href="mailto:nemo@nemogould.com" class="btn btn--brass">Email Nemo</a>
+          <a href="https://www.instagram.com/nemomatic/" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://vimeo.com/user417548" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Vimeo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__brand">
+        <img src="assets/brand/logo.png" alt="" width="40" height="27" />
+        <span>Nemo Gould</span>
+      </div>
+      <p>Kinetic sculpture from found materials · Oakland, CA</p>
+      <p class="site-footer__copy">&copy; <span id="year"></span> Nemo Gould. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="" id="lightbox-img" />
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <script src="js/loader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
