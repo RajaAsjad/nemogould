@@ -691,6 +691,15 @@ h2 {
   animation-play-state: paused;
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Spotlight */
 .spotlight {
   display: grid;
