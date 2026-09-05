@@ -19,18 +19,27 @@
 
   // Mobile nav
   if (toggle && nav) {
+    const setMenuOpen = (open) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      nav.classList.toggle("is-open", open);
+      header?.classList.toggle("is-menu-open", open);
+      document.body.classList.toggle("is-menu-open", open);
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
     toggle.addEventListener("click", () => {
       const open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      nav.classList.toggle("is-open", !open);
-      document.body.style.overflow = open ? "" : "hidden";
+      setMenuOpen(!open);
     });
+
     nav.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
-        document.body.style.overflow = "";
-      });
+      a.addEventListener("click", () => setMenuOpen(false));
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+        setMenuOpen(false);
+      }
     });
   }
 
